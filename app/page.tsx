@@ -1,4 +1,5 @@
 "use client";
+import Image from "next/image";
 import { useEffect } from "react";
 
 export default function Home() {
@@ -16,7 +17,15 @@ export default function Home() {
       <div className="dev hidden lg:flex flex-col md:w-[300px] w-full bg-[#f9f9f9]">
         {/*  */}
         <div className="dev mt-10 p-3 flex">
-          <div className="border rounded-3xl h-[50px] w-[50px] bg-gray-500 dev"></div>
+          {/* <div className="border rounded-3xl h-[50px] w-[50px] bg-gray-500 dev"></div> */}
+
+          <Image
+            src="https://picsum.photos/200/300"
+            height="50"
+            width="50"
+            className="h-[50px] w-[50px]"
+            alt=""
+          ></Image>
 
           <div className="ml-2 flex flex-col justify-center dev">
             <h2 className="text-blue-500 ">Gravid Christofer</h2>
