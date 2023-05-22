@@ -2,9 +2,9 @@ export default function Home() {
   return (
     <div className="dev flex flex-col md:flex-row h-screen">
       {/* left side */}
-      <div className="dev hidden lg:flex flex-col md:w-[250px] w-full bg-[#f9f9f9]">
+      <div className="dev hidden lg:flex flex-col md:w-[300px] w-full bg-[#f9f9f9]">
         {/*  */}
-        <div className="dev p-3 flex">
+        <div className="dev mt-10 p-3 flex">
           <div className="border rounded-3xl h-[50px] w-[50px] bg-gray-500 dev"></div>
 
           <div className="ml-2 flex flex-col justify-center dev">
@@ -20,7 +20,7 @@ export default function Home() {
               type="text"
               name=""
               id=""
-              className="w-full p-2 text-gray-500 focus:outline-none text-sm"
+              className="w-full p-2 text-gray-500 focus:outline-none text-sm rounded-3xl border border-gray-300"
               placeholder="Search Friends"
             />
           </form>
@@ -179,8 +179,64 @@ export default function Home() {
       </div>
 
       {/* right side */}
-      <div className="dev hidden lg:block md:w-[250px] w-full bg-[#f9f9f9]">
-        right
+      <div className="dev hidden lg:block md:w-[300px] w-full bg-[#f9f9f9]">
+        <form action="" className="p-2 mt-10">
+          <input
+            type="text"
+            className="w-full border p-2 text-sm focus:outline-none rounded-3xl border-gray-300"
+            placeholder="Search Messages"
+          />
+        </form>
+
+        <div className="dev flex justify-center mb-3">
+          <div className="w-[80px] h-[80px] rounded-full bg-slate-500"></div>
+        </div>
+
+        <div className="mb-3 dev">
+          <h2 className="text-blue-500 text-lg  text-center">
+            Gravid Christofer
+          </h2>
+          <p className="text-sm text-gray-500 text-center">Junior Developer</p>
+        </div>
+
+        <div className="flex justify-around px-3 mb-3 text-center dev">
+          <div className="h-[60px] w-[60px] bg-blue-200 text-blue-600 rounded-full dev">
+            Chat
+          </div>
+          <div className="h-[60px] w-[60px] bg-blue-200 text-blue-600 rounded-full dev">
+            Video Call
+          </div>
+          <div className="h-[60px] w-[60px] bg-blue-200 text-blue-600 rounded-full dev">
+            Audio
+          </div>
+        </div>
+
+        <div className="mb-3 dev">
+          <ul>
+            <li>Option 1</li>
+            <li>Option 1</li>
+          </ul>
+        </div>
+
+        <div className="mb-3 dev">Attachment</div>
+
+        <div className="flex justify-around px-3 mb-3 text-center dev">
+          <div className="h-[60px] w-[60px] bg-blue-200 text-blue-600 rounded-lg dev">
+            Chat
+          </div>
+          <div className="h-[60px] w-[60px] bg-blue-200 text-blue-600 rounded-lg dev">
+            Video Call
+          </div>
+          <div className="h-[60px] w-[60px] bg-blue-200 text-blue-600 rounded-lg dev">
+            Files
+          </div>
+        </div>
+
+        <div className="flex justify-center dev">
+          <button className="border border-blue-400 p-1 px-3 text-blue-500 rounded-full text-xs">
+            View All
+          </button>
+        </div>
       </div>
     </div>
   );
