@@ -141,9 +141,18 @@ export default function Home() {
           </div>
 
           <div className="flex gap-3 dev">
-            <div className="dev h-[40px] w-[40px]">1</div>
-            <div className="dev h-[40px] w-[40px]">2</div>
-            <div className="dev h-[40px] w-[40px]">3</div>
+            <div className="dev justify-center flex items-center text-xl h-[40px] w-[40px]">
+              <BsSearch></BsSearch>
+            </div>
+            <div className="dev justify-center flex items-center text-xl h-[40px] w-[40px]">
+              <BiMicrophone></BiMicrophone>
+            </div>
+            <div className="dev justify-center flex items-center text-xl h-[40px] w-[40px]">
+              <BiPaperclip></BiPaperclip>
+            </div>
+            <div className="dev justify-center flex items-center text-xl h-[40px] w-[40px] ">
+              <BiSmile></BiSmile>
+            </div>
           </div>
         </div>
 
