@@ -19,7 +19,10 @@ import { MdAudiotrack } from "react-icons/md";
 
 export default function Home() {
   const [friends, setFriends] = useState<any>([]);
+  const [message, setMessage] = useState<any>("");
   const [messages, setMessages] = useState<any>([]);
+
+  let user = "john";
 
   useEffect(() => {
     // create 10 items in faker js
@@ -38,6 +41,7 @@ export default function Home() {
       (index) => {
         return {
           id: index,
+          user: Math.random() < 0.5 ? "john" : faker.internet.domainWord(),
           email: faker.internet.email(),
           name: faker.person.fullName(),
           avatar: faker.image.avatar(),
@@ -46,7 +50,6 @@ export default function Home() {
       }
     );
 
-    // console.log(messages);
     setMessages(messages);
   }, []);
 
@@ -59,6 +62,47 @@ export default function Home() {
       });
     }, 1000);
   }, []);
+
+  const handleSubmit = (e: any) => {
+    e.preventDefault();
+    const newMessage = {
+      id: messages.length + 1,
+      user: user,
+      email: faker.internet.email(),
+      name: faker.person.fullName(),
+      avatar: faker.image.avatar(),
+      message: message,
+    };
+
+    setMessages([...messages, newMessage]);
+    const main = document.querySelector("#main");
+
+    setTimeout(() => {
+      main?.scrollTo({
+        top: 99999,
+      });
+    }, 100);
+
+    setMessage("");
+
+    // setTimeout(() => {
+    //   const newMessage = {
+    //     id: messages.length + 1,
+    //     user: faker.internet.domainWord(),
+    //     email: faker.internet.email(),
+    //     name: faker.person.fullName(),
+    //     avatar: faker.image.avatar(),
+    //     message: faker.lorem.sentence(),
+    //   };
+
+    //   setMessages([...messages, newMessage]);
+    //   const main = document.querySelector("#main");
+
+    //   main?.scrollTo({
+    //     top: 99999,
+    //   });
+    // }, 1000);
+  };
 
   return (
     <div className="dev flex flex-col md:flex-row h-screen">
@@ -159,10 +203,9 @@ export default function Home() {
         {/*  */}
         <div className="messages mb-[50px]">
           {messages.map((data: any, index: number) => {
-            const isOdd = Boolean(index % 2);
-            console.log(data);
+            const isUser = data.user == "john";
 
-            if (isOdd) {
+            if (!isUser) {
               return (
                 <div className="flex dev mb-3 px-3 dev" key={index}>
                   <div className="flex mt-1">
@@ -210,8 +253,7 @@ export default function Home() {
         <div className="flex dev sticky bottom-0 p-3 bg-white">
           <form
             className="flex items-center bg-[#f9f9f9] border w-full p-1 relative rounded-full"
-            action="#"
-            method="post"
+            onSubmit={handleSubmit}
           >
             <span className="px-2 dev">
               <BiMicrophone />
@@ -220,6 +262,8 @@ export default function Home() {
               type="text"
               className="w-full bg-[#f9f9f9] text-sm dev focus:outline-none"
               placeholder="Write a message"
+              value={message}
+              onChange={(e) => setMessage(e.target.value)}
             />
             <span className="dev px-2">
               <BiPaperclip />
