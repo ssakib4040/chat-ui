@@ -1,6 +1,7 @@
 "use client";
 import Image from "next/image";
 import { useEffect, useState, useRef } from "react";
+
 import { faker } from "@faker-js/faker";
 import { BsFillPeopleFill, BsSearch } from "react-icons/bs";
 import {
@@ -93,7 +94,7 @@ export default function Home() {
       {/* left side */}
       <div className="hidden lg:flex flex-col md:w-[300px] w-full bg-[#f9f9f9]">
         {/*  */}
-        <div className="mt-10 p-3 flex">
+        <div className="p-3 flex">
           {/* <div className="border rounded-3xl h-[50px] w-[50px] bg-gray-500"></div> */}
 
           <Image
@@ -111,12 +112,12 @@ export default function Home() {
         </div>
 
         {/*  */}
-        <div className="flex items-center p-2">
+        <div className="flex items-center px-3 p-2">
           <form
             action=""
             className="flex items-center bg-white border border-gray-300 w-full rounded-3xl overflow-hidden"
           >
-            <span className="ml-2">
+            <span className="ml-3">
               <BsSearch />
             </span>
             <input
