@@ -65,6 +65,9 @@ export default function Home() {
 
   const handleSubmit = (e: any) => {
     e.preventDefault();
+
+    if (!message) return;
+
     const newMessage = {
       id: messages.length + 1,
       user: user,
