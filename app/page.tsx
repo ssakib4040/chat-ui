@@ -1,6 +1,6 @@
 "use client";
 import Image from "next/image";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 import { faker } from "@faker-js/faker";
 import { BsFillPeopleFill, BsSearch } from "react-icons/bs";
 import {
@@ -23,6 +23,8 @@ export default function Home() {
   const [messages, setMessages] = useState<any>([]);
 
   let user = "john";
+
+  const messageRef = useRef<any>(null);
 
   useEffect(() => {
     // create 10 items in faker js
@@ -55,9 +57,7 @@ export default function Home() {
 
   useEffect(() => {
     setTimeout(() => {
-      const main = document.querySelector("#main");
-
-      main?.scrollTo({
+      messageRef.current.scrollTo({
         top: 99999,
       });
     }, 1000);
@@ -75,10 +75,9 @@ export default function Home() {
     };
 
     setMessages([...messages, newMessage]);
-    const main = document.querySelector("#main");
 
     setTimeout(() => {
-      main?.scrollTo({
+      messageRef.current.scrollTo({
         top: 99999,
       });
     }, 100);
@@ -183,7 +182,7 @@ export default function Home() {
         </div>
 
         {/*  */}
-        <div className="messages overflow-y-auto">
+        <div className="messages overflow-y-auto" ref={messageRef}>
           {messages.map((data: any, index: number) => {
             const isUser = data.user == "john";
 
