@@ -84,33 +84,15 @@ export default function Home() {
     }, 100);
 
     setMessage("");
-
-    // setTimeout(() => {
-    //   const newMessage = {
-    //     id: messages.length + 1,
-    //     user: faker.internet.domainWord(),
-    //     email: faker.internet.email(),
-    //     name: faker.person.fullName(),
-    //     avatar: faker.image.avatar(),
-    //     message: faker.lorem.sentence(),
-    //   };
-
-    //   setMessages([...messages, newMessage]);
-    //   const main = document.querySelector("#main");
-
-    //   main?.scrollTo({
-    //     top: 99999,
-    //   });
-    // }, 1000);
   };
 
   return (
-    <div className="dev flex flex-col md:flex-row h-screen">
+    <div className="flex flex-col md:flex-row h-screen">
       {/* left side */}
-      <div className="dev hidden lg:flex flex-col md:w-[300px] w-full bg-[#f9f9f9]">
+      <div className="hidden lg:flex flex-col md:w-[300px] w-full bg-[#f9f9f9]">
         {/*  */}
-        <div className="dev mt-10 p-3 flex">
-          {/* <div className="border rounded-3xl h-[50px] w-[50px] bg-gray-500 dev"></div> */}
+        <div className="mt-10 p-3 flex">
+          {/* <div className="border rounded-3xl h-[50px] w-[50px] bg-gray-500"></div> */}
 
           <Image
             src="https://picsum.photos/200/200?random=1"
@@ -120,14 +102,14 @@ export default function Home() {
             alt=""
           ></Image>
 
-          <div className="ml-2 flex flex-col justify-center dev">
+          <div className="ml-2 flex flex-col justify-center">
             <h2 className="text-blue-500 ">Gravid Christofer</h2>
             <p className="text-xs text-gray-500">Senior Developer</p>
           </div>
         </div>
 
         {/*  */}
-        <div className="flex items-center p-2 dev">
+        <div className="flex items-center p-2">
           <form
             action=""
             className="flex items-center bg-white border border-gray-300 w-full rounded-3xl overflow-hidden"
@@ -144,10 +126,10 @@ export default function Home() {
         </div>
 
         {/*  */}
-        <div className="dev overflow-y-auto">
+        <div className="overflow-y-auto">
           {friends.map((data: any, index: any) => {
             return (
-              <div key={data.id} className="dev flex p-3">
+              <div key={data.id} className="flex p-3">
                 <Image
                   src={data.avatar}
                   height="40"
@@ -156,7 +138,7 @@ export default function Home() {
                   className="w-[40px] h-[40px]  rounded-3xl"
                 ></Image>
 
-                <div className="dev ml-2">
+                <div className="ml-2">
                   <h2 className="text-blue-500 text-sm">{data.name}</h2>
                   <p className="text-xs text-gray-500">{data.message}</p>
                 </div>
@@ -167,9 +149,9 @@ export default function Home() {
       </div>
 
       {/* main */}
-      <div className="dev flex-1 overflow-auto" id="main">
-        <div className="flex justify-between dev sticky top-0 p-3 bg-white">
-          <div className="flex items-center dev">
+      <div className="flex-1 grid grid-rows-[70px,1fr,60px] h-screen" id="main">
+        <div className="flex justify-between sticky top-0 p-3 bg-white">
+          <div className="flex items-center">
             <Image
               src="https://picsum.photos/200/200?random=1"
               height="40"
@@ -177,37 +159,37 @@ export default function Home() {
               alt=""
               className="w-[40px] h-[40px]  rounded-3xl"
             ></Image>
-            <h2 className="dev ml-2">John Doe</h2>
+            <h2 className="ml-2">John Doe</h2>
 
             <span className="relative flex h-3 w-3 ml-2">
               <span className="relative inline-flex rounded-full h-3 w-3 bg-green-500"></span>
             </span>
           </div>
 
-          <div className="flex gap-3 dev">
-            <div className="dev justify-center flex items-center text-xl h-[40px] w-[40px]">
+          <div className="flex gap-3">
+            <div className="justify-center flex items-center text-xl h-[40px] w-[40px]">
               <BsSearch></BsSearch>
             </div>
-            <div className="dev justify-center flex items-center text-xl h-[40px] w-[40px]">
+            <div className="justify-center flex items-center text-xl h-[40px] w-[40px]">
               <BiMicrophone></BiMicrophone>
             </div>
-            <div className="dev justify-center flex items-center text-xl h-[40px] w-[40px]">
+            <div className="justify-center flex items-center text-xl h-[40px] w-[40px]">
               <BiPaperclip></BiPaperclip>
             </div>
-            <div className="dev justify-center flex items-center text-xl h-[40px] w-[40px] ">
+            <div className="justify-center flex items-center text-xl h-[40px] w-[40px] ">
               <BiSmile></BiSmile>
             </div>
           </div>
         </div>
 
         {/*  */}
-        <div className="messages mb-[50px]">
+        <div className="messages overflow-y-auto">
           {messages.map((data: any, index: number) => {
             const isUser = data.user == "john";
 
             if (!isUser) {
               return (
-                <div className="flex dev mb-3 px-3 dev" key={index}>
+                <div className="flex mb-3 px-3" key={index}>
                   <div className="flex mt-1">
                     {/* <div className=""></div> */}
 
@@ -228,10 +210,7 @@ export default function Home() {
             }
 
             return (
-              <div
-                className="flex flex-row-reverse dev mb-3 px-3 dev"
-                key={index}
-              >
+              <div className="flex flex-row-reverse mb-3 px-3" key={index}>
                 <div className="flex mt-1">
                   <Image
                     src={`https://picsum.photos/200/300?random=2`}
@@ -250,29 +229,29 @@ export default function Home() {
           })}
         </div>
 
-        <div className="flex dev sticky bottom-0 p-3 bg-white">
+        <div className="flex sticky bottom-0 p-3 bg-white">
           <form
             className="flex items-center bg-[#f9f9f9] border w-full p-1 relative rounded-full"
             onSubmit={handleSubmit}
           >
-            <span className="px-2 dev">
+            <span className="px-2">
               <BiMicrophone />
             </span>
             <input
               type="text"
-              className="w-full bg-[#f9f9f9] text-sm dev focus:outline-none"
+              className="w-full bg-[#f9f9f9] text-sm focus:outline-none"
               placeholder="Write a message"
               value={message}
               onChange={(e) => setMessage(e.target.value)}
             />
-            <span className="dev px-2">
+            <span className="px-2">
               <BiPaperclip />
             </span>
 
-            <span className="dev px-2">
+            <span className="px-2">
               <BiSmile />
             </span>
-            <span className="dev px-2 mr-[50px]">
+            <span className="px-2 mr-[50px]">
               <BiCamera />
             </span>
 
@@ -289,7 +268,7 @@ export default function Home() {
       </div>
 
       {/* right side */}
-      <div className="dev hidden lg:block md:w-[300px] w-full bg-[#f9f9f9]">
+      <div className="hidden lg:block md:w-[300px] w-full bg-[#f9f9f9]">
         <form
           action=""
           className=" mt-10 flex items-center bg-white border border-gray-300 rounded-full mx-3 mb-3 px-3 "
@@ -304,9 +283,7 @@ export default function Home() {
           />
         </form>
 
-        <div className="dev flex justify-center mb-3">
-          {/* <div className="w-[80px] h-[80px] rounded-full bg-slate-500"></div> */}
-
+        <div className="flex justify-center mb-3">
           <Image
             src="https://picsum.photos/200/300?random=2"
             height={80}
@@ -316,26 +293,26 @@ export default function Home() {
           ></Image>
         </div>
 
-        <div className="mb-6 dev">
+        <div className="mb-6">
           <h2 className="text-blue-500 text-lg  text-center">
             Gravid Christofer
           </h2>
           <p className="text-sm text-gray-500 text-center">Junior Developer</p>
         </div>
 
-        <div className="flex justify-around px-3 mb-6 text-center dev">
-          <div className="h-[60px] w-[60px] bg-blue-200 text-blue-600 rounded-full justify-center flex items-center text-2xl dev">
+        <div className="flex justify-around px-3 mb-6 text-center">
+          <div className="h-[60px] w-[60px] bg-blue-200 text-blue-600 rounded-full justify-center flex items-center text-2xl">
             <BiChat></BiChat>
           </div>
-          <div className="h-[60px] w-[60px] bg-blue-200 text-blue-600 rounded-full justify-center flex items-center text-2xl dev">
+          <div className="h-[60px] w-[60px] bg-blue-200 text-blue-600 rounded-full justify-center flex items-center text-2xl">
             <BiVideo></BiVideo>
           </div>
-          <div className="h-[60px] w-[60px] bg-blue-200 text-blue-600 rounded-full justify-center flex items-center text-2xl dev">
+          <div className="h-[60px] w-[60px] bg-blue-200 text-blue-600 rounded-full justify-center flex items-center text-2xl">
             <MdAudiotrack></MdAudiotrack>
           </div>
         </div>
 
-        <div className="mb-3 px-3 dev">
+        <div className="mb-3 px-3">
           <ul>
             <li className="flex text-gray-600 items-center mb-2">
               <BsFillPeopleFill />{" "}
@@ -357,27 +334,25 @@ export default function Home() {
           </ul>
         </div>
 
-        <div className="mb-3 mx-3 text-gray-600 font-medium dev">
-          Attachment
-        </div>
+        <div className="mb-3 mx-3 text-gray-600 font-medium">Attachment</div>
 
-        <div className="flex justify-around px-3 mb-3 text-center dev">
-          <div className="h-[60px] w-[60px] bg-blue-200 text-blue-600 rounded-lg flex justify-center items-center text-sm dev">
+        <div className="flex justify-around px-3 mb-3 text-center">
+          <div className="h-[60px] w-[60px] bg-blue-200 text-blue-600 rounded-lg flex justify-center items-center text-sm">
             Chat
           </div>
-          <div className="h-[60px] w-[60px] bg-blue-200 text-blue-600 rounded-lg flex justify-center items-center text-sm dev">
+          <div className="h-[60px] w-[60px] bg-blue-200 text-blue-600 rounded-lg flex justify-center items-center text-sm">
             Video
           </div>
-          <div className="h-[60px] w-[60px] bg-blue-200 text-blue-600 rounded-lg flex justify-center items-center text-sm dev">
+          <div className="h-[60px] w-[60px] bg-blue-200 text-blue-600 rounded-lg flex justify-center items-center text-sm">
             Files
           </div>
 
-          <div className="h-[60px] w-[60px] bg-blue-200 text-blue-600 rounded-lg flex justify-center items-center text-sm dev">
+          <div className="h-[60px] w-[60px] bg-blue-200 text-blue-600 rounded-lg flex justify-center items-center text-sm">
             Images
           </div>
         </div>
 
-        <div className="flex justify-center dev">
+        <div className="flex justify-center">
           <button className="border border-blue-400 p-1 px-3 text-blue-500 rounded-full text-xs">
             View All
           </button>
